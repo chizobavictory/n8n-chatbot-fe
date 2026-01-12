@@ -1,5 +1,5 @@
 services:
-  - type: static
+  - type: static_site
     name: n8n-chatbot-frontend
     env: static
     plan: starter
@@ -7,7 +7,7 @@ services:
     staticPublishPath: dist
     envVars:
       - key: VITE_API_BASE_URL
-        sync: false # Set this to your n8n backend's Render URL (e.g., https://xxx.onrender.com)
+        sync: false # Set this to your n8n backend's Render URL after backend deploy
     routes:
       - type: rewrite
         source: /*
