@@ -2,7 +2,7 @@ services:
   - type: static_site
     name: n8n-chatbot-frontend
     env: static
-    plan: starter
+    plan: free
     buildCommand: npm install && npm run build
     staticPublishPath: dist
     envVars:
