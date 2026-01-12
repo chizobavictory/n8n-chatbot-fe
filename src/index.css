@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+  /* Light Mode Colors */
+  :root {
+    --background: 0 0% 100%;
+    /* Pure White */
+    --foreground: 220 15% 15%;
+    /* Dark Charcoal */
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 15%;
+    --primary: 216 100% 50%;
+    /* Radiant Pure Blue */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 216 100% 95%;
+    /* Very pale blue */
+    --secondary-foreground: 220 15% 15%;
+    --muted: 220 13% 91%;
+    --muted-foreground: 220 8% 55%;
+    --accent: 216 100% 95%;
+    --accent-foreground: 220 15% 15%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 76% 36%;
+    /* Emerald green */
+    --warning: 38 92% 50%;
+    /* Amber/gold */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 216 100% 50%;
+    --radius: 1rem;
+    /* 16px for cards */
+    --radius-sm: 0.75rem;
+    /* 12px for inputs/buttons */
+  }
+
+  /* Dark Mode (Default) */
+  .dark {
+    --background: 224 15% 6%;
+    /* Deep matte Charcoal/Navy */
+    --foreground: 220 15% 92%;
+    /* Soft off-white */
+    --card: 224 15% 8%;
+    /* Slightly lighter than background */
+    --card-foreground: 220 15% 92%;
+    --popover: 224 15% 8%;
+    --popover-foreground: 220 15% 92%;
+    --primary: 216 100% 50%;
+    /* Radiant Pure Blue */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 224 15% 12%;
+    --secondary-foreground: 220 15% 92%;
+    --muted: 224 15% 12%;
+    --muted-foreground: 220 8% 55%;
+    --accent: 216 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 76% 36%;
+    --warning: 38 92% 50%;
+    --border: 224 15% 15%;
+    --input: 224 15% 15%;
+    --ring: 216 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Manrope', 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  strong,
+  b {
+    font-weight: 700;
+  }
+
+  .font-medium {
+    font-weight: 500;
+  }
+}
