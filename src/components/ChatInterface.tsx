@@ -57,6 +57,7 @@ export function ChatInterface() {
   const [isLoading, setIsLoading] = useState(false);
   const [attachment, setAttachment] = useState<{ file: Blob | File; type: 'image' | 'audio' } | null>(null);
   const [showRequirements, setShowRequirements] = useState(false);
+  const [showGithubMenu, setShowGithubMenu] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const pollingInterval = useRef<NodeJS.Timeout | null>(null);
@@ -142,18 +143,51 @@ export function ChatInterface() {
         <div className='absolute top-[20%] left-[30%] w-[50%] h-[50%] rounded-full bg-primary/10 blur-[100px]' />
       </div>
 
-      <header className='relative z-10 flex items-center justify-between px-8 py-6 border-b border-border/30 backdrop-blur-sm bg-background/50'>
-        <div className='flex items-center gap-4'>
+      <header className='relative z-50 flex items-center justify-between px-8 py-6 border-b border-border/30 backdrop-blur-sm bg-background/50'>
+        <div className='flex items-center gap-4 relative'>
           <h1 className='text-2xl font-bold tracking-tight'>n8n GenAI Chatbot</h1>
-          <Button
-            variant='outline'
-            size='icon'
-            onClick={() => window.open('https://github.com/chizobavictory/n8n-chatbot-be', '_blank')}
-            className='rounded-full border-2 border-primary bg-transparent hover:bg-primary hover:text-primary-foreground transition-all h-9 w-9'
-            title='View GitHub Repository'
-          >
-            <Github className='h-5 w-5' />
-          </Button>
+          <div className='relative'>
+            <Button
+              variant='outline'
+              size='icon'
+              onClick={() => setShowGithubMenu(!showGithubMenu)}
+              className={`rounded-full border-2 border-primary transition-all h-9 w-9 ${
+                showGithubMenu ? 'bg-primary text-primary-foreground' : 'bg-transparent hover:bg-primary hover:text-primary-foreground'
+              }`}
+              title='View GitHub Repositories'
+            >
+              <Github className='h-5 w-5' />
+            </Button>
+
+            {showGithubMenu && (
+              <>
+                <div className='fixed inset-0 z-40' onClick={() => setShowGithubMenu(false)} />
+                <div className='absolute left-0 mt-2 w-48 bg-card/90 backdrop-blur-md border border-border/50 rounded-xl shadow-xl z-50 overflow-hidden animate-in fade-in zoom-in-95 duration-200'>
+                  <button
+                    onClick={() => {
+                      window.open('https://github.com/chizobavictory/n8n-chatbot-fe', '_blank');
+                      setShowGithubMenu(false);
+                    }}
+                    className='w-full px-4 py-2.5 text-left text-sm hover:bg-primary hover:text-primary-foreground transition-colors flex items-center justify-between group'
+                  >
+                    <span>Frontend Repo</span>
+                    <Github className='h-4 w-4 opacity-50 group-hover:opacity-100' />
+                  </button>
+                  <div className='h-px bg-border/30' />
+                  <button
+                    onClick={() => {
+                      window.open('https://github.com/chizobavictory/n8n-chatbot-be', '_blank');
+                      setShowGithubMenu(false);
+                    }}
+                    className='w-full px-4 py-2.5 text-left text-sm hover:bg-primary hover:text-primary-foreground transition-colors flex items-center justify-between group'
+                  >
+                    <span>Backend Repo</span>
+                    <Github className='h-4 w-4 opacity-50 group-hover:opacity-100' />
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
         </div>
         <div className='flex items-center gap-3'>
           <Button
