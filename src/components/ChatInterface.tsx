@@ -205,7 +205,7 @@ export function ChatInterface() {
           <Button
             variant='outline'
             size='icon'
-            onClick={() => window.open('https://drive.google.com/file/d/1dhq5r-TilNdIpUaXQp-grO3u11-6IolD/view?usp=sharing', '_blank')}
+            onClick={() => window.open('https://docs.google.com/document/d/1h0IvW9Aop0XqnKAnRqWTx_rbmgRsqWZsdDmqLKBNAbA/edit?usp=sharing', '_blank')}
             className='rounded-full border-2 border-primary bg-transparent hover:bg-primary hover:text-primary-foreground transition-all'
             title='View Architectural Diagram'
           >
