@@ -1,5 +1,5 @@
 services:
-  - type: static_site
+  - type: web
     name: n8n-chatbot-frontend
     env: static
     plan: free
