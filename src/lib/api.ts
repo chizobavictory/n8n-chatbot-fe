@@ -3,6 +3,7 @@ export interface ChatResponse {
 }
 
 const FIXED_SESSION_ID = 'single-user';
+const API_BASE_URL = (import.meta as any).env.VITE_API_BASE_URL || '';
 
 export const generateSessionId = (): string => {
   const storedSessionId = localStorage.getItem('n8n-chat-session-id');
@@ -48,7 +49,7 @@ export const sendMessage = async (message: string, file: Blob | File | null, fil
   }
 
   // Fire and forget (Async)
-  await fetch('/webhook/chat', {
+  await fetch(`${API_BASE_URL}/webhook/chat`, {
     method: 'POST',
     body: formData,
   });
@@ -64,7 +65,7 @@ export interface ChatMessage {
 export const getHistory = async (): Promise<ChatMessage[]> => {
   const sessionId = generateSessionId();
   try {
-    const response = await fetch(`/webhook/history?sessionId=${sessionId}&t=${Date.now()}`);
+    const response = await fetch(`${API_BASE_URL}/webhook/history?sessionId=${sessionId}&t=${Date.now()}`);
     const data = await response.json();
 
     // Handle n8n's "no items" response
