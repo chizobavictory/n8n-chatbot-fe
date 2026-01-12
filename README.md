@@ -4,7 +4,6 @@ A modern, full-screen React chatbot interface designed for the n8n GenAI Chatbot
 
 ## ✨ Key UI Features
 
-- **Pinterest-Inspired Design**: True full-screen layout with an animated gradient mesh background.
 - **Glassmorphism Aesthetics**: Modern backdrop blurs and semi-transparent message bubbles.
 - **Dark/Light/System Theme**: Intelligent theme switching with persistent user preference.
 - **Smart Scroll**: Auto-scroll detection that respects manual reading and forces scroll on new messages.
